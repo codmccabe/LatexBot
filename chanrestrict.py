@@ -19,9 +19,11 @@ def setup(whitelist, blacklist, allow_private = True):
 		if i in bset:
 			raise ValueError('{} is in the blacklist and the whitelist'.format(i))
 
+
+# vvvv this code doesn't work bceause of changes in the api
 def check(message):
 	allow = False
-	if message.channel.is_private:
+	if message.channel.is_private: #massage.channel.is_private is no longer valid. isinstance() is the new use
 		allow = private
 	else:
 		ser = message.server.name.lower()
